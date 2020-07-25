@@ -266,7 +266,10 @@ class NewConfig extends React.Component {
       } else {
         Dialog.confirm({
           content: locale.confirmSyanx,
-          language: aliwareIntl.currentLanguageCode || 'zh-cn',
+          language:
+            typeof aliwareIntl.currentLanguageCode !== 'undefined'
+              ? aliwareIntl.currentLanguageCode || 'zh-cn'
+              : 'zh-cn',
           onOk: () => {
             this.publicConfigBeforeCheck(content);
           },
@@ -352,7 +355,10 @@ class NewConfig extends React.Component {
       error: res => {
         this.closeLoading();
         Dialog.alert({
-          language: aliwareIntl.currentLanguageCode || 'zh-cn',
+          language:
+            typeof aliwareIntl.currentLanguageCode !== 'undefined'
+              ? aliwareIntl.currentLanguageCode || 'zh-cn'
+              : 'zh-cn',
           content: locale.publishFailed,
         });
       },
